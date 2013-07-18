@@ -8,13 +8,13 @@
 }	
 
 body {
-	color: #000;
+	color: #fff;
 	height: 100%;
  	z-index: 100;
 	font-size: 12px;
 	overflow: hidden;
 	overflow-y: visible;
-	background-color: #fff;
+	background-color: #232323;
 	font-family: "Lucida Grande";
 }
 
@@ -35,7 +35,7 @@ body[type=channel] div#body_home {
 }
 
 body .line {
- 	border-bottom:1px solid #efefef;
+ 	border-bottom: 1px solid #181818;
 }
 
 body[dir=rtl] .sender {
@@ -74,7 +74,6 @@ body[dir=ltr] .time {
 	float: right;
 	color: #999;
 	-webkit-user-select: none;
-	text-shadow: #fff 0px 1px;
 	font-weight: bold;
 	margin-right: 10px;
 	line-height: 22px;
@@ -97,11 +96,11 @@ body[dir=ltr] .time {
 /* Links */
 
 a {
-	color: #184586;
+	color: #ccc;
 }
 
 a:hover {
-	color: #31B8FF;
+	color: #ccc;
 }
 
 /* Topic Bar */
@@ -114,10 +113,11 @@ a:hover {
 	z-index: 400;
 	position: fixed;
 
-	color: #000;
-	text-shadow: #e3e3e3 0px 1px;
-	background-color: #bcbcbc;
-	background: -webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#bcbcbc));
+	color: #fff;
+	border-bottom: 1px solid rgb(80, 80, 80);
+
+	background-color: #111;
+	-webkit-box-shadow: #333 0 4px 4px;
 
 	font-weight: bold;
 	text-align: center;
@@ -125,9 +125,6 @@ a:hover {
 
 	padding: 0 6px 0 6px;
 	border-bottom: solid 1px #a3a3a3;
-
-	-webkit-transition: opacity 0.8s linear;
-	-webkit-box-shadow: #888 0 2px 2px;
 
 	overflow: hidden;
 	white-space: nowrap;
@@ -206,25 +203,27 @@ body div.line[type*=privmsg][highlight=false] {
 
 body div.line[type*=privmsg][highlight=true],
 body div.line[type*=action][highlight=true] {
-	font-weight: normal;
-	background-color: #ffc !important;
+	background-color: #435B83;
+	border-bottom: none;
+	border-top: none;
+	border-left: none;
 }
 
 body div[type*="privmsg"] .message {
-	color: #000;
+	color: #fff;
 }
 
 body div[type*=privmsg] p[type*=myself] .message {
-	color: #000;
+	color: #fff;
 }
 
 body div[type*=privmsg] .sender {
 	font-weight: 700;
 	width:134px;
-	text-shadow: #fff 0px 1px; 
-	background-color: #eee;
+	text-shadow: #333 0px 1px; 
+	background-color: #181818;
 	min-height:22px;
-	border-right: 1px solid #dcdcdc;
+	border-right: 1px solid rgb(64, 64, 64);
 	padding-right:5px;
 	text-align:right;
 	display:inline-block;
@@ -234,6 +233,7 @@ body div[type*=privmsg] .sender {
 	bottom: 0;
 	left: 0;
 	text-overflow: ellipsis;
+
 }
 
 /* ACTION */
@@ -241,12 +241,12 @@ body div[type*=privmsg] .sender {
 body div.line[type*=action] {
  	font-weight: bold;
  	font-style: italic;
-	background-color: #eee
+	background-color: #181818;
 
 }
 
 body div[type*="action"] .message {
-	color: #000;
+	color: #fff;
 	font-weight: bold;
 }
 
@@ -258,7 +258,7 @@ body div[type*=action] .sender {
 	font-weight: 700;
 	width:134px;
 	text-shadow: #fff 0px 1px; 
-	background-color: #eee;
+	background-color: #181818;
 	height:22px;
 	padding-right:5px;
 	text-align:right;
@@ -268,11 +268,11 @@ body div[type*=action] .sender {
 }
 
 body div[type*=action] p[type*=myself] .sender {
-	color: #7ae;
+	color: #eee;
 }
 
 body div[type*=action] p[type*=myself] .message {
-	color: #000;
+	color: #eee;
 }
 
 body[dir=ltr] div[type*=action] .sender:before {
@@ -299,7 +299,7 @@ body[dir=rtl] div[type*=action] .sender:after {
 body div.line[type*=invite],
 body div.line[type*=debug],
 body div.line[type*=rawhtml] {
-	color: #777;
+	color: #eee;
   	z-index: 190;
 	background: #eee;
   	position: relative;
@@ -366,7 +366,6 @@ body div.event span.time {
 body div.event span.message {
 	min-height: 19px;
 	line-height: 19px;
-	text-shadow: #fff 0px 1px;
 	padding-left: 0;
 }
 
@@ -380,41 +379,40 @@ body div.line[type*=mode],
 body div.line[type*=topic],
 body div.line[type*=website] {
 	padding-left: 1%;
-	background-color: #DEE6F2;
 	font-weight: bold;
 	min-height: 19px;
 }
 
 body div.event span.message[type*=topic]{
-	color: #000;
+	color: #eee;
 }
 
 body div.event span.message[type*=join]{
-	color: #BAAED5;
+	color: #eee;
 }
 
 body div.event span.message[type*=part]{
-	color: #a6b9c0;
+	color: #eee;
 }
 
 body div.event span.message[type*=kick]{
-	color: #303030;
+	color: #eee;
 }
 
 body div.event span.message[type*=quit]{
-	color: #a6b9c0;
+	color: #eee;
 }
 
 body div.event span.message[type*=kill]{
-	color: #a6b9c0;
+	color: #eee;
 }
 
 body div.event span.message[type*=nick]{
-	color: #a6b9c0;
+	color: #eee;
 }
 
 body div.event span.message[type*=mode]{
-	color: #a6b9c0;
+	color: #eee;
 }
 
 
