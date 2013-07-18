@@ -220,7 +220,6 @@ body div[type*=privmsg] p[type*=myself] .message {
 body div[type*=privmsg] .sender {
 	font-weight: 700;
 	width:134px;
-	text-shadow: #333 0px 1px; 
 	background-color: #181818;
 	min-height:22px;
 	border-right: 1px solid rgb(64, 64, 64);
@@ -257,7 +256,6 @@ body div[type*=action] .sender {
 	left: 0;
 	font-weight: 700;
 	width:134px;
-	text-shadow: #fff 0px 1px; 
 	background-color: #181818;
 	height:22px;
 	padding-right:5px;
