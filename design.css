@@ -115,10 +115,10 @@ a:hover {
 
 	color: #fff;
 	border-bottom: 1px solid rgb(80, 80, 80);
-
+	
 	background-color: #111;
 	-webkit-box-shadow: #333 0 4px 4px;
-
+	
 	font-weight: bold;
 	text-align: center;
 	line-height: 28px;
@@ -233,7 +233,7 @@ body div[type*=privmsg] .sender {
 	bottom: 0;
 	left: 0;
 	text-overflow: ellipsis;
-
+	
 }
 
 /* ACTION */

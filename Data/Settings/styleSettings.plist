@@ -18,6 +18,6 @@
 	<key>Underlying Window Color</key>
 	<string>#FFFFFF</string>
 	<key>Force Invert Sidebars</key>
-	<false/>
+	<true/>
 </dict>
 </plist>
