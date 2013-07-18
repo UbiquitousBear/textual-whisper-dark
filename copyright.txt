@@ -1,0 +1,1 @@
+This style is based off Linkinus 2’s Whisper. Credits go to Nicholas Penree (Conceited Software) and Jannis Leidel (for the original LimeChat) themes. 
