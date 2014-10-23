@@ -5,6 +5,7 @@
 	padding: 0;
 	font-size: 100%;
 	word-wrap: break-word;
+	background-color: #232323;
 }	
 
 body {
@@ -18,7 +19,7 @@ body {
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-body div#body_home {
+#body_home {
 	left: 0;
 	right: 0;
 	bottom: 0;
@@ -30,7 +31,7 @@ body div#body_home {
 	-webkit-transition: opacity 0.8s linear;
 }
 
-body[type=channel] div#body_home {
+#body_home {
 	max-height: 96.5%;
 }
 
@@ -49,7 +50,7 @@ body[dir=rtl] .sender {
 
 /* Loading Screen */
 
-body div#loading_screen {
+#loading_screen {
 	position:absolute; 
 	top: 50%;
 	left: 50%;
@@ -76,7 +77,7 @@ body[dir=ltr] .time {
 	-webkit-user-select: none;
 	font-weight: bold;
 	margin-right: 10px;
-	line-height: 22px;
+	line-height: 30px;
 	font-style: normal;
 	text-align: right;
 }
@@ -146,7 +147,7 @@ a:hover {
 /* Images */
 
 body a img {
-	border-left: 143px solid #eee;
+	border-left: 143px solid #232323;
 	margin-left:-148px;
 	padding-left: 5px;
 	padding-bottom: 5px;
@@ -176,7 +177,17 @@ div[id=mark] {
 	opacity: 0.6;
 }
 
+span.sender{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 /* NOTICE/CTCP/WALLOPS */
+
+body div.line{
+	word-break: break-all;
+}
 
 body div.line[ltype*=ctcp],
 body div.line[ltype*=notice],
@@ -209,7 +220,14 @@ body div.line[ltype*=action][highlight=true] {
 	border-left: none;
 }
 
-body div[ltype*="privmsg"] .message {
+body div.line[ltype*=action][highlight=true] span.sender {
+	font-weight: normal;
+	background-color: #435B83 !important;
+	font-weight:700;
+}
+
+body div[ltype*=privmsg] p[ltype*=myself] .message,
+body div[ltype*=privmsg][mtype*=myself] .message {
 	color: #fff;
 }
 
@@ -221,7 +239,7 @@ body div[ltype*=privmsg] .sender {
 	font-weight: 700;
 	width:134px;
 	background-color: #181818;
-	min-height:22px;
+	min-height:30px;
 	border-right: 1px solid rgb(64, 64, 64);
 	padding-right:5px;
 	text-align:right;
@@ -257,7 +275,7 @@ body div[ltype*=action] .sender {
 	font-weight: 700;
 	width:134px;
 	background-color: #181818;
-	height:22px;
+	height:30px;
 	padding-right:5px;
 	text-align:right;
 	display:inline-block;
@@ -265,13 +283,11 @@ body div[ltype*=action] .sender {
 	height: 100%;
 }
 
+body div[ltype*=action] p[ltype*=myself] .message,
 body div[ltype*=action] p[ltype*=myself] .sender {
 	color: #eee;
 }
 
-body div[ltype*=action] p[ltype*=myself] .message {
-	color: #eee;
-}
 
 body[dir=ltr] div[ltype*=action] .sender:before {
 	margin-right: 0.4em;
@@ -344,26 +360,27 @@ body div.line[command="722"] .message {
 
 body span.message{
 	position: relative;
-	padding-left: 145px;
+	padding-left: 150px;
 	display:table-cell;
 	vertical-align: middle;
-	min-height: 22px;
-	line-height: 22px;
-	width:80%;
+	min-height: 30px;
+	line-height: 30px;
+	width: calc(100% - 250px);
+	word-break: normal;
 }
 
-body div.event + div..event {
+body div.event + div.event {
 	border-top: #fff 1px solid;
 }
 
 body div.event span.time {
 	color: #a6b9c0;
-	line-height: 19px;
+	line-height: 25px;
 }
 
 body div.event span.message {
-	min-height: 19px;
-	line-height: 19px;
+	min-height: 25px;
+	line-height: 25px;
 	padding-left: 0;
 }
 
@@ -376,7 +393,7 @@ body div.line[ltype*=nick],
 body div.line[ltype*=mode],
 body div.line[ltype*=topic],
 body div.line[ltype*=website] {
-	padding-left: 1%;
+	padding-left: 10px;
 	font-weight: bold;
 	min-height: 19px;
 }
@@ -417,165 +434,196 @@ body div.event span.message[ltype*=mode]{
 /* Nickname Colors */
 
 body .inline_nickname {
-	font-weight: 700;
 	color: #000;
 }
 
-body div[ltype*=privmsg] .sender[ltype*=myself] { 
+body div[ltype*=privmsg] .sender[ltype*=myself], 
+body div[ltype*=privmsg] .sender[mtype*=myself] { 
 	color: #7ae; 
 }
 
 body .sender[ltype*=normal][colornumber='0'], 
+body .sender[mtype*=normal][colornumber='0'], 
 body .inline_nickname[colornumber='0'] {
 	color: #008; 
 }
 
 body .sender[ltype*=normal][colornumber='1'], 
+body .sender[mtype*=normal][colornumber='1'], 
 body .inline_nickname[colornumber='1'] {
 	color: #333; 
 }
 
 body .sender[ltype*=normal][colornumber='2'], 
+body .sender[mtype*=normal][colornumber='2'], 
 body .inline_nickname[colornumber='2'] {
 	color: #66a; 
 }
 
 body .sender[ltype*=normal][colornumber='3'], 
+body .sender[mtype*=normal][colornumber='3'], 
 body .inline_nickname[colornumber='3'] {
 	color: #458; 
 }
 
 body .sender[ltype*=normal][colornumber='4'], 
+body .sender[mtype*=normal][colornumber='4'], 
 body .inline_nickname[colornumber='4'] {
 	color: #080; 
 }
 
 body .sender[ltype*=normal][colornumber='5'], 
+body .sender[mtype*=normal][colornumber='5'], 
 body .inline_nickname[colornumber='5'] {
 	color: #a32; 
 }
 
 body .sender[ltype*=normal][colornumber='6'], 
+body .sender[mtype*=normal][colornumber='6'], 
 body .inline_nickname[colornumber='6'] {
 	color: #820; 
 }
 
 body .sender[ltype*=normal][colornumber='7'], 
+body .sender[mtype*=normal][colornumber='7'], 
 body .inline_nickname[colornumber='7'] {
 	color: #808; 
 }
 
 body .sender[ltype*=normal][colornumber='8'], 
+body .sender[mtype*=normal][colornumber='8'], 
 body .inline_nickname[colornumber='8'] {
 	color: #f80; 
 }
 
 body .sender[ltype*=normal][colornumber='9'], 
+body .sender[mtype*=normal][colornumber='9'], 
 body .inline_nickname[colornumber='9'] {
 	color: #ac5; 
 }
 
 body .sender[ltype*=normal][colornumber='10'], 
+body .sender[mtype*=normal][colornumber='10'], 
 body .inline_nickname[colornumber='10'] {
 	color: #00CC52; 
 }
 
 body .sender[ltype*=normal][colornumber='11'], 
+body .sender[mtype*=normal][colornumber='11'], 
 body .inline_nickname[colornumber='11'] {
 	color: #088; 
 }
 
 body .sender[ltype*=normal][colornumber='12'], 
+body .sender[mtype*=normal][colornumber='12'], 
 body .inline_nickname[colornumber='12'] {
 	color: #a1f; 
 }
 
 body .sender[ltype*=normal][colornumber='13'], 
+body .sender[mtype*=normal][colornumber='13'], 
 body .inline_nickname[colornumber='13'] {
 	color: #cc6; 
 }
 
 body .sender[ltype*=normal][colornumber='14'], 
+body .sender[mtype*=normal][colornumber='14'], 
 body .inline_nickname[colornumber='14'] {
 	color: #d8f; 
 }
 
 body .sender[ltype*=normal][colornumber='15'], 
+body .sender[mtype*=normal][colornumber='15'], 
 body .inline_nickname[colornumber='15'] {
 	color: #888; 
 }
 
 body .sender[ltype*=normal][colornumber='16'], 
+body .sender[mtype*=normal][colornumber='16'], 
 body .inline_nickname[colornumber='16'] { 
 	color: #c66;
 }
 
 body .sender[ltype*=normal][colornumber='17'], 
+body .sender[mtype*=normal][colornumber='17'], 
 body .inline_nickname[colornumber='17'] { 
 	color: #b41;
 }
 
 body .sender[ltype*=normal][colornumber='18'], 
+body .sender[mtype*=normal][colornumber='18'], 
 body .inline_nickname[colornumber='18'] { 
 	color: #aa0;
 }
 
 body .sender[ltype*=normal][colornumber='19'], 
+body .sender[mtype*=normal][colornumber='19'], 
 body .inline_nickname[colornumber='19'] { 
 	color: #6df;
 }
 
 body .sender[ltype*=normal][colornumber='20'], 
+body .sender[mtype*=normal][colornumber='20'], 
 body .inline_nickname[colornumber='20'] { 
 	color: #7f4;
 }
 
 body .sender[ltype*=normal][colornumber='21'], 
+body .sender[mtype*=normal][colornumber='21'], 
 body .inline_nickname[colornumber='21'] { 
 	color: #665;
 }
 
 body .sender[ltype*=normal][colornumber='22'], 
+body .sender[mtype*=normal][colornumber='22'], 
 body .inline_nickname[colornumber='22'] { 
 	color: #b13637;
 }
 
 body .sender[ltype*=normal][colornumber='23'], 
+body .sender[mtype*=normal][colornumber='23'], 
 body .inline_nickname[colornumber='23'] { 
 	color: #e45d59;
 }
 
 body .sender[ltype*=normal][colornumber='24'], 
+body .sender[mtype*=normal][colornumber='24'], 
 body .inline_nickname[colornumber='24'] { 
 	color: #1b51ae;
 }
 
 body .sender[ltype*=normal][colornumber='25'], 
+body .sender[mtype*=normal][colornumber='25'], 
 body .inline_nickname[colornumber='25'] { 
 	color: #4855ac;
 }
 
 body .sender[ltype*=normal][colornumber='20'], 
+body .sender[mtype*=normal][colornumber='20'], 
 body .inline_nickname[colornumber='20'] { 
 	color: #7f1d86;
 }
 
 body .sender[ltype*=normal][colornumber='27'], 
+body .sender[mtype*=normal][colornumber='27'], 
 body .inline_nickname[colornumber='27'] { 
 	color: #73643f;
 }
 
 body .sender[ltype*=normal][colornumber='28'], 
+body .sender[mtype*=normal][colornumber='28'], 
 body .inline_nickname[colornumber='28'] { 
 	color: #0b9578;
 }
 
 body .sender[ltype*=normal][colornumber='29'], 
+body .sender[mtype*=normal][colornumber='29'], 
 body .inline_nickname[colornumber='29'] { 
 	color: #569c96;
 }
 
 body .sender[ltype*=normal][colornumber='30'], 
+body .sender[mtype*=normal][colornumber='30'], 
 body .inline_nickname[colornumber='30'] { 
 	color: #08465f;
 }
@@ -589,28 +637,31 @@ body .inline_nickname[colornumber='30'] {
 
 .inlineImageCell .image {
 	display: inline-block;
-	float: left;
 	margin-right: 12px;
 	margin-left: 10px;
 	min-width: 40px;
 	max-width: 90%;
+	background-color:#bcbcbc;
+	background:-webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#bcbcbc));
+	padding:10px;
+	border-radius: 5px;
 }
 
 .inlineImageCell .closeButton {
 	cursor: pointer;
 	border-radius: 5px;
-	border: 2px solid #a1a1a1;
-	color: #a1a1a1;
-	display: inline-block;
+	color: #fff;
 	line-height: 14px;
-	font-size: 15px;
-	font-family: "Helvetica Neue" !important;
-	text-indent: 7px;
-	width: 16px;
-	height: 16px;
-	float: left;
-	padding-right: 7px;
-	padding-left: 0px;
+	font-size: 20px;
+	width: 20px;
+	height: 15px;
+	text-indent: 4.5px;
+	font-weight: 900;
+	background-color:#bcbcbc;
+	background:-webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#bcbcbc));
+	padding-top:2px;
+	float:left;
+
 }
 
 html[systemversion^="10.9"] .inlineImageCell .closeButton,
