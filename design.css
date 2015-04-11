@@ -211,6 +211,11 @@ body div.line[ltype*=wallops] {
 	border-bottom: 1px solid #f77;
 }
 
+body div.line[ltype*=notice] span.message {
+    line-height: normal;
+    padding: 5px 0 5px 10px;   
+}
+
 body div[ltype*=notice] .sender {
 	color: #f00;
 	font-weight: 700;
