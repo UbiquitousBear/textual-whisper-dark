@@ -122,7 +122,7 @@ a:hover {
 	position: fixed;
 
 	color: #fff;
-	background-color: #111;
+	background-color: #111 !important;
 
 
 	font-weight: bold;
@@ -731,13 +731,14 @@ body div.line.selectedUser[highlight=false] .time {
 body div.line.selectedUser[highlight=false] p, 
 body div.line.selectedUser[highlight=false] span.innerMessage,
 body div.line.selectedUser[highlight=false] span.message,
-body div.line.selectedUser[highlight=false] span.time {
+body div.line.selectedUser[highlight=false] span.time,
+body div.line.selectedUser[highlight=false] a {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 
   	z-index: 190;
   	position: relative;
-  	background-color: #3E8040;
+  	background-color: #3E8040 !important;
 }
 
 body div.line.selectedUser[highlight=false] .sender:before{
