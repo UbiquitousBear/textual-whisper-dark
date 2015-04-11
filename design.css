@@ -207,7 +207,6 @@ body div.line[ltype*=wallops] {
   	z-index: 191;
 	background: #fcc;
   	position: relative;
- 	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #f77;
 	border-bottom: 1px solid #f77;
 }
