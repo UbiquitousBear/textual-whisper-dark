@@ -205,10 +205,15 @@ body div.line[ltype*=notice],
 body div.line[ltype*=wallops] {
 	color: #f00;
   	z-index: 191;
-	background: #fcc;
   	position: relative;
 	border-top: 1px solid #f77;
 	border-bottom: 1px solid #f77;
+}
+
+body div.line[ltype*=ctcp] span.time,
+body div.line[ltype*=notice] span.time,
+body div.line[ltype*=wallops] span.time {
+    line-height: 23px;
 }
 
 body div.line[ltype*=notice] span.message {
