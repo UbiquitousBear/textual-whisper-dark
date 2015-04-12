@@ -79,7 +79,7 @@ body[dir=rtl] .sender {
 body[dir=ltr] .time {
 	white-space: nowrap;
 	float: right;
-	color: #999;
+	color: #65737e;
 	-webkit-user-select: none;
 	text-shadow: #000 0px 1px;
 	font-weight: bold;
@@ -405,7 +405,7 @@ body div.event + div.event {
 }
 
 body div.event span.time {
-	color: #a6b9c0;
+	color: #65737e;
 	line-height: 25px;
 }
 
@@ -436,11 +436,11 @@ body div.event span.message[ltype*=topic]{
 }
 
 body div.event span.message[ltype*=join]{
-	color: #E67E22;
+	color: #65737e;
 }
 
 body div.event span.message[ltype*=part]{
-	color: #E67E22;
+	color: #65737e;
 }
 
 body div.event span.message[ltype*=kick]{
@@ -448,7 +448,7 @@ body div.event span.message[ltype*=kick]{
 }
 
 body div.event span.message[ltype*=quit]{
-	color: #a6b9c0;
+	color: #65737e;
 }
 
 body div.event span.message[ltype*=kill]{
@@ -456,11 +456,11 @@ body div.event span.message[ltype*=kill]{
 }
 
 body div.event span.message[ltype*=nick]{
-	color: #a6b9c0;
+	color: #65737e;
 }
 
 body div.event span.message[ltype*=mode]{
-	color: #a6b9c0;
+	color: #8fa1b3;
 }
 
 
