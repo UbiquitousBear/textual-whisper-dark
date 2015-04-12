@@ -240,17 +240,16 @@ body div.line[ltype*=action][highlight=true] {
     color: #F39C12 !important;
 }
 
-body div.line[ltype*=action][highlight=true] span.sender {
-	font-weight: normal;
-	background-color: #262626 !important;
-	font-weight:700;
-    clear: both;
-}
-
-body div.line[highlight=true] span.innerMessage {
+body div.line[highlight=true] span.innerMessage,
+body div.line[highlight=true] span.message,
+body div.line[highlight=true] span.sender,
+body div.line[highlight=true] span.time,
+body div.line[highlight=true] p {
 	font-weight: normal;
 	font-weight:700;
     color: #F39C12 !important;
+    background-color: #262626 !important;
+    clear: both;
 }
 
 body div[ltype*="privmsg"] .message {
