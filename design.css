@@ -132,10 +132,10 @@ a:hover {
 
 	padding: 0 6px 0 6px;
 	border-bottom: solid 1px #a3a3a3;
-
+/*
 	-webkit-transition: opacity 0.8s linear;
 	-webkit-box-shadow: #888 0 2px 2px;
-
+*/
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
