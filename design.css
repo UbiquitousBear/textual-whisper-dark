@@ -343,9 +343,9 @@ body div.line[ltype*=debug],
 body div.line[ltype*=rawhtml] {
 	color: #999;
   	z-index: 190;
-	background: #2C3E50;
+	background: #20242C;
   	position: relative;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
 /* Message of the Day (MOTD) */
