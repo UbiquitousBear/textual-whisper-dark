@@ -484,193 +484,193 @@ body .inline_nickname {
 
 body div[ltype*=privmsg] .sender[ltype*=myself], 
 body div[ltype*=privmsg] .sender[mtype*=myself] { 
-	color: #1ABC9C; 
+	color: #7ae; 
 }
 
 body .sender[ltype*=normal][colornumber='0'], 
 body .sender[mtype*=normal][colornumber='0'], 
 body .inline_nickname[colornumber='0'] {
-	color: #2ECC71; 
+	color: #bf616a; 
 }
 
 body .sender[ltype*=normal][colornumber='1'], 
 body .sender[mtype*=normal][colornumber='1'], 
 body .inline_nickname[colornumber='1'] {
-	color: #3498DB; 
+	color: #d08770; 
 }
 
 body .sender[ltype*=normal][colornumber='2'], 
 body .sender[mtype*=normal][colornumber='2'], 
 body .inline_nickname[colornumber='2'] {
-	color: #9B59B6; 
+	color: #ebcb8b; 
 }
 
 body .sender[ltype*=normal][colornumber='3'], 
 body .sender[mtype*=normal][colornumber='3'], 
 body .inline_nickname[colornumber='3'] {
-	color: #ECF0F1; 
+	color: #a3be8c; 
 }
 
 body .sender[ltype*=normal][colornumber='4'], 
 body .sender[mtype*=normal][colornumber='4'], 
 body .inline_nickname[colornumber='4'] {
-	color: #F1C40F; 
+	color: #96b5b4; 
 }
 
 body .sender[ltype*=normal][colornumber='5'], 
 body .sender[mtype*=normal][colornumber='5'], 
 body .inline_nickname[colornumber='5'] {
-	color: #E67E22; 
+	color: #8fa1b3; 
 }
 
 body .sender[ltype*=normal][colornumber='6'], 
 body .sender[mtype*=normal][colornumber='6'], 
 body .inline_nickname[colornumber='6'] {
-	color: #E74C3C; 
+	color: #b48ead; 
 }
 
 body .sender[ltype*=normal][colornumber='7'], 
 body .sender[mtype*=normal][colornumber='7'], 
 body .inline_nickname[colornumber='7'] {
-	color: #ECF0F1; 
+	color: #ab7967; 
 }
 
 body .sender[ltype*=normal][colornumber='8'], 
 body .sender[mtype*=normal][colornumber='8'], 
 body .inline_nickname[colornumber='8'] {
-	color: #95A5A6; 
+	color: #bf616a; 
 }
 
 body .sender[ltype*=normal][colornumber='9'], 
 body .sender[mtype*=normal][colornumber='9'], 
 body .inline_nickname[colornumber='9'] {
-	color: #2ECC71; 
+	color: #d08770; 
 }
 
 body .sender[ltype*=normal][colornumber='10'], 
 body .sender[mtype*=normal][colornumber='10'], 
 body .inline_nickname[colornumber='10'] {
-	color: #3498DB; 
+	color: #ebcb8b; 
 }
 
 body .sender[ltype*=normal][colornumber='11'], 
 body .sender[mtype*=normal][colornumber='11'], 
 body .inline_nickname[colornumber='11'] {
-	color: #9B59B6; 
+	color: #a3be8c; 
 }
 
 body .sender[ltype*=normal][colornumber='12'], 
 body .sender[mtype*=normal][colornumber='12'], 
 body .inline_nickname[colornumber='12'] {
-	color: #ECF0F1; 
+	color: #96b5b4; 
 }
 
 body .sender[ltype*=normal][colornumber='13'], 
 body .sender[mtype*=normal][colornumber='13'], 
 body .inline_nickname[colornumber='13'] {
-	color: #F1C40F; 
+	color: #8fa1b3; 
 }
 
 body .sender[ltype*=normal][colornumber='14'], 
 body .sender[mtype*=normal][colornumber='14'], 
 body .inline_nickname[colornumber='14'] {
-	color: #E67E22; 
+	color: #b48ead; 
 }
 
 body .sender[ltype*=normal][colornumber='15'], 
 body .sender[mtype*=normal][colornumber='15'], 
 body .inline_nickname[colornumber='15'] {
-	color: #E74C3C; 
+	color: #ab7967; 
 }
 
 body .sender[ltype*=normal][colornumber='16'], 
 body .sender[mtype*=normal][colornumber='16'], 
 body .inline_nickname[colornumber='16'] { 
-	color: #ECF0F1;
+	color: #bf616a;
 }
 
 body .sender[ltype*=normal][colornumber='17'], 
 body .sender[mtype*=normal][colornumber='17'], 
 body .inline_nickname[colornumber='17'] { 
-	color: #95A5A6;
+	color: #d08770;
 }
 
 body .sender[ltype*=normal][colornumber='18'], 
 body .sender[mtype*=normal][colornumber='18'], 
 body .inline_nickname[colornumber='18'] { 
-	color: #2ECC71;
+	color: #ebcb8b;
 }
 
 body .sender[ltype*=normal][colornumber='19'], 
 body .sender[mtype*=normal][colornumber='19'], 
 body .inline_nickname[colornumber='19'] { 
-	color: #3498DB;
+	color: #a3be8c;
 }
 
 body .sender[ltype*=normal][colornumber='20'], 
 body .sender[mtype*=normal][colornumber='20'], 
 body .inline_nickname[colornumber='20'] { 
-	color: #9B59B6;
+	color: #96b5b4;
 }
 
 body .sender[ltype*=normal][colornumber='21'], 
 body .sender[mtype*=normal][colornumber='21'], 
 body .inline_nickname[colornumber='21'] { 
-	color: #ECF0F1;
+	color: #8fa1b3;
 }
 
 body .sender[ltype*=normal][colornumber='22'], 
 body .sender[mtype*=normal][colornumber='22'], 
 body .inline_nickname[colornumber='22'] { 
-	color: #F1C40F;
+	color: #b48ead;
 }
 
 body .sender[ltype*=normal][colornumber='23'], 
 body .sender[mtype*=normal][colornumber='23'], 
 body .inline_nickname[colornumber='23'] { 
-	color: #E67E22;
+	color: #ab7967;
 }
 
 body .sender[ltype*=normal][colornumber='24'], 
 body .sender[mtype*=normal][colornumber='24'], 
 body .inline_nickname[colornumber='24'] { 
-	color: #E74C3C;
+	color: #bf616a;
 }
 
 body .sender[ltype*=normal][colornumber='25'], 
 body .sender[mtype*=normal][colornumber='25'], 
 body .inline_nickname[colornumber='25'] { 
-	color: #ECF0F1;
+	color: #d08770;
 }
 
 body .sender[ltype*=normal][colornumber='26'], 
 body .sender[mtype*=normal][colornumber='26'], 
 body .inline_nickname[colornumber='26'] { 
-	color: #95A5A6;
+	color: #ebcb8b;
 }
 
 body .sender[ltype*=normal][colornumber='27'], 
 body .sender[mtype*=normal][colornumber='27'], 
 body .inline_nickname[colornumber='27'] { 
-	color: #2ECC71;
+	color: #a3be8c;
 }
 
 body .sender[ltype*=normal][colornumber='28'], 
 body .sender[mtype*=normal][colornumber='28'], 
 body .inline_nickname[colornumber='28'] { 
-	color: #3498DB;
+	color: #96b5b4;
 }
 
 body .sender[ltype*=normal][colornumber='29'], 
 body .sender[mtype*=normal][colornumber='29'], 
 body .inline_nickname[colornumber='29'] { 
-	color: #9B59B6;
+	color: #8fa1b3;
 }
 
 body .sender[ltype*=normal][colornumber='30'], 
 body .sender[mtype*=normal][colornumber='30'], 
 body .inline_nickname[colornumber='30'] { 
-	color: #ECF0F1;
+	color: #b48ead;
 }
 
 .inlineImageCell {
