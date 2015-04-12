@@ -105,6 +105,7 @@ body[dir=ltr] .time {
 
 a {
 	color: #ccc;
+    background-color: transparent;
 }
 
 a:hover {
@@ -313,12 +314,7 @@ body div[ltype*=action] .sender {
 
 body div[ltype*=action] p[ltype*=myself] .sender,
 body div[ltype*=action][mtype*=myself] .sender {
-	color: #999;
-}
-
-body div[ltype*=action] p[ltype*=myself] .message,
-body div[ltype*=action][mtype*=myself] .sender {
-	color: #999;
+	color: #7ae;
 }
 
 body[dir=ltr] div[ltype*=action] .sender:before {
