@@ -25,7 +25,7 @@ Whisper = {
 	},
 
 	getSenderNick: function(sender) {
-		if (sender) { return sender.getAttribute('nickname'); }
+		if (sender) { return sender.getAttribute('data-nickname'); }
 	},
 
 	getPreviousLine: function(line) {
@@ -36,7 +36,7 @@ Whisper = {
 	},
 
 	getLineType: function(line) {
-		return line ? line.getAttribute('ltype') : null;
+		return line ? line.getAttribute('data-line-type') : null;
 	},
 
 	coalesceLines: function(lineNum) {
@@ -138,7 +138,7 @@ Textual.viewFinishedReload = function()
 	Textual.viewFinishedLoading();
 };
 
-Textual.newMessagePostedToView = function (lineNum) {
+Textual.messageAddedToView = function (lineNum, fromBuffer) {
 	Whisper.coalesceLines(lineNum);
 	
 	var element = document.getElementById("line-" + lineNum);
