@@ -18,11 +18,15 @@
 	<key>Underlying Window Color</key>
 	<string>#FFFFFF</string>
 	<key>Force Invert Sidebars</key>
-	<true/>
+	<false/>
+	<key>Nickname Color Style</key>
+	<string>HSL-dark</string>
 	<key>Template Engine Versions</key>
 	<dict>
 		<key>default</key>
-		<integer>3</integer>
+		<integer>4</integer>
 	</dict>
+	<key>Key-value Store Name</key>
+	<string>Whisper</string>
 </dict>
 </plist>

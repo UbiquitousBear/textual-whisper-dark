@@ -25,7 +25,7 @@ Whisper = {
 	},
 
 	getSenderNick: function(sender) {
-		if (sender) { return sender.getAttribute('data-nickname'); }
+		if (sender) { return sender.getAttribute('nickname'); }
 	},
 
 	getPreviousLine: function(line) {
@@ -36,7 +36,7 @@ Whisper = {
 	},
 
 	getLineType: function(line) {
-		return line ? line.getAttribute('data-line-type') : null;
+		return line ? line.getAttribute('ltype') : null;
 	},
 
 	coalesceLines: function(lineNum) {
@@ -60,6 +60,23 @@ Whisper = {
 			sender.innerHTML = '';
 		}
 	},
+	
+	enableEmoticonIfSet : function(lineNum){
+		var line = Whisper.getLine(lineNum);
+		var innerMessage = Whisper.getInnerMessage(line);
+		
+		if (innerMessage){
+			var text = innerMessage.innerHTML; 
+			if (text.indexOf("!whisper emoticons on") > -1){
+				app.styleSettingsSetValue("enableEmoticon", true);
+			}
+			
+			if (text.indexOf("!whisper emoticons off") > -1){
+				app.styleSettingsSetValue("enableEmoticon", false);
+			}
+		}
+	},
+	
 	
 	updateNicknameAssociatedWithNewMessage: function(e)
 	{
@@ -123,6 +140,85 @@ Whisper = {
 	}
 };
 
+Emoticons = {
+	
+	list : {
+		";)"        : "Wink.png",
+		"X)~"        : "Facial.png",
+		"&GT;:D"    : "Angry Face.png",
+		":)"        : "Smile.png",
+		"(:"        : "Smile.png",
+		":@"        : "Angry Face.png",
+		":["        : "Blush.png",
+		":S"        : "Undecided.png",
+		":&APOS;("  : "Crying.png",
+		":|"        : "Foot In Mouth.png",
+		":("        : "Frown.png",
+		":O"        : "Gasp.png",
+		":D"        : "Grin.png",
+		"D:"        : "Gasp.png",
+		" D:"        : "Gasp.png",
+		"O:)"       : "Halo.png",
+		"&LT;3"     : "Heart.png",
+		"8)"        : "Wearing Sunglasses.png",
+		":*"        : "Kiss.png",
+		":$"        : "Money-mouth.png",
+		":P"        : "Sticking Out Tongue.png",
+		":\\"       : "Undecided.png",
+		"(N)"       : "Thumbs Down.png",
+		"(Y)"       : "Thumbs Up.png",
+		"(NL)"      : "nl.png",
+		"(OKEANOS)" : "okeanos.png",
+		"(DRUDGE)"  : "drudge.png",
+		"(CALTSAR)" : "caltsar.png"
+	},
+	
+	replaceEmoticonFromText : function (text) {
+		
+		if (text.match(/color:/ig)) {
+			return text;
+		}
+		
+		text = text.replace(/(^D-?:)|\s(D-?:)|(X-?\)~|&gt;:d|;-?\)|:-?\)|\(-?:|(:-?@)|:-?\[|:-?s|:&apos;-?\(|:-?\||:-?\(|:-?o|:-?D|o:-?\)|&lt;3|8-?\)|:-?\*|:-?&apos;\(|(:-?\$|:-?p|:-?\\|\(N\)|\(Y\)|\(NL\)|\(OKEANOS\)|\(DRUDGE\)|\(CALTSAR\)))/ig, function(emote){ return Emoticons.imageForEmoticon(emote) } );
+		
+		return text;
+	},
+	
+	
+	
+	imageForEmoticon : function (emote){
+		window.console.log('emote = "' + emote + '"');
+		var result = emote;
+		var imageName = Emoticons.list[emote.replace('-', '').toUpperCase()];
+	
+		if (imageName == null) return emote;
+	
+		switch(emote){
+			case ' D:':
+				result = '&nbsp;<img src="img/emoticons/' + imageName + '" class="emoticon" alt="'+emote+'" onclick="removeEmoticon(this, \'' + emote.replace('&apos;', 'WHISPERAPOS') + '\');" />';
+			default:
+				result = '<img src="img/emoticons/' + imageName + '" class="emoticon" alt="'+emote+'" onclick="removeEmoticon(this, \'' + emote.replace('&apos;', 'WHISPERAPOS') + '\');" />';
+		}
+	
+		return result;
+	},
+	
+	replaceTextWithEmoticons : function (lineNum) {
+		var line = Whisper.getLine(lineNum);
+		var innerMessage = Whisper.getInnerMessage(line);
+		
+		if (innerMessage){
+			var textWithEmoticon = Emoticons.replaceEmoticonFromText(innerMessage.innerHTML);
+			innerMessage.innerHTML = textWithEmoticon;	
+		}
+		
+	},
+	
+	isEnabled : function() {
+		return app.styleSettingsRetrieveValue("enableEmoticon");
+	}
+	
+}
 
 Textual.viewFinishedLoading = function()
 {
@@ -138,8 +234,12 @@ Textual.viewFinishedReload = function()
 	Textual.viewFinishedLoading();
 };
 
-Textual.messageAddedToView = function (lineNum, fromBuffer) {
+Textual.newMessagePostedToView = function (lineNum) {
 	Whisper.coalesceLines(lineNum);
+	//Whisper.enableEmoticonIfSet(lineNum);
+	// if(Emoticons.isEnabled()) {
+	// 	Emoticons.replaceTextWithEmoticons(lineNum);
+	// }
 	
 	var element = document.getElementById("line-" + lineNum);
 	Whisper.updateNicknameAssociatedWithNewMessage(element);

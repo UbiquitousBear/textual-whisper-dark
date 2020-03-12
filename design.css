@@ -4,12 +4,11 @@
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
-	word-wrap: break-word;
-    background-color: #2b303b;
+	word-wrap: break-word;	
 }
 
 body {
-	color: #c0c5ce;
+	color: #000;
 	height: 100%;
  	z-index: 100;
 	font-size: 12px;
@@ -37,7 +36,8 @@ body {
 
 body .line {
  	border-top:1px solid #181818;
- 	display: block;
+	 display: block;
+	 background-color: #2b303b;
 }
 
 body .line.coalesced {
@@ -71,7 +71,6 @@ body[dir=rtl] .sender {
 	padding-left: 10px;
 	opacity: 1; /* Set by JavaScript */
 	-webkit-transition: opacity 0.8s linear;
-    color: #000;
 }
 
 /* Time */
@@ -81,7 +80,7 @@ body[dir=ltr] .time {
 	float: right;
 	color: #65737e;
 	-webkit-user-select: none;
-	text-shadow: #000 0px 1px;
+	text-shadow: rgb(0, 0, 0) 0px 1px;
 	font-weight: bold;
 	margin-right: 10px;
 	line-height: 30px;
@@ -91,16 +90,16 @@ body[dir=ltr] .time {
 
 /* Scrolling */
 
-body[customscroller="true"]::-webkit-scrollbar {
+body[data-custom-scroller="true"]::-webkit-scrollbar {
 	width: 17px;
 }
 
-body[customscroller="true"]::-webkit-scrollbar-track {
+body[data-custom-scroller="true"]::-webkit-scrollbar-track {
 	background: #393939;
-	box-shadow: inset 1px 0px 0px 0px #4b4b4b;
+	box-shadow: inset 1px 0px 0px 0px #e8e8e8;
 }
 
-body[customscroller="true"]::-webkit-scrollbar-thumb {
+body[data-custom-scroller="true"]::-webkit-scrollbar-thumb {
 	background-color: #7c7c7c;
 	border: 4px solid transparent;
 	border-left: 5px solid transparent;
@@ -108,7 +107,7 @@ body[customscroller="true"]::-webkit-scrollbar-thumb {
 	background-clip: content-box;
 }
 
-body[customscroller="true"]::-webkit-scrollbar-thumb:hover {
+body[data-custom-scroller="true"]::-webkit-scrollbar-thumb:hover {
 	background-color: #b0b0b0;
 }
 
@@ -127,7 +126,6 @@ body[customscroller="true"]::-webkit-scrollbar-thumb:hover {
 
 a {
 	color: #ccc;
-    background-color: transparent;
 }
 
 a:hover {
@@ -136,44 +134,40 @@ a:hover {
 
 /* Topic Bar */
 
-#topic_bar {
+#topicBar {
 	top: 0;
 	left: 0;
 	right: 0;
 	opacity: 0; /* Set by JavaScript */
 	z-index: 400;
-	position: fixed;
-
 	color: #fff;
-	background-color: #111 !important;
-
-
-	font-weight: bold;
-	text-align: center;
-	line-height: 28px;
-	font-size: 85%;
-
-	padding: 0 6px 0 6px;
-	border-bottom: solid 1px #a3a3a3;
-/*
-	-webkit-transition: opacity 0.8s linear;
-	-webkit-box-shadow: #888 0 2px 2px;
-*/
+	position: fixed;
+	padding: 2px 0.5em 3px;
+	box-shadow: 0 1px 5px #777;
+	border-bottom: 1px solid #a3a3a3;
+	text-shadow: 1px 1px rgba(10, 10, 10, 0.7);
+	background-color: #111;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	text-align: center;
 }
 
 /* Topic bar hover additions contributed with permission from the project:
 	<https://github.com/hbang/Simplified-Light-Modifications> */
 
-#topic_bar:hover {
+#topicBar:hover {
 	overflow: visible;
 	white-space: normal;
 }
 
-#topic_bar a,
-#topic_bar .channel {
+#topicBar a,
+#topicBar span.channel {
+	color: #8E8E8E;
+	border-color: #8E8E8E;
+	text-shadow: 1px 1px rgba(10, 10, 10, 0.7);
 }
 
 /* Images */
@@ -187,6 +181,7 @@ body img {
 	display: block;
 	max-width: 95%;
 }
+
 
 /* Remember Line */
 
@@ -214,76 +209,65 @@ span.sender{
 
 /* NOTICE/CTCP/WALLOPS */
 
-body div.event * {
-	background-color: #20242C;
-}
-
 body div.line{
 	word-break: break-all;
 }
 
-body div.line[ltype*=ctcp],
-body div.line[ltype*=notice],
-body div.line[ltype*=wallops] {
+body div.line[data-line-type*=ctcp],
+body div.line[data-line-type*=notice],
+body div.line[data-line-type*=wallops] {
 	color: #f00;
   	z-index: 191;
+	background: #fcc;
   	position: relative;
+ 	padding: 2px 5px 2px 5px;
 	border-top: 1px solid #f77;
 	border-bottom: 1px solid #f77;
 }
 
-body div.line[ltype*=ctcp] span.time,
-body div.line[ltype*=notice] span.time,
-body div.line[ltype*=wallops] span.time {
-    line-height: 23px;
-}
-
-body div.line[ltype*=notice] span.message {
-    line-height: normal;
-    padding: 5px 0 5px 10px;   
-}
-
-body div[ltype*=notice] .sender {
+body div[data-line-type*=notice] .sender {
 	color: #f00;
 	font-weight: 700;
 }
 
 /* PRIVMSG */
 
-body div.line[ltype*=privmsg][highlight=false] {
+body div.line[data-line-type*=privmsg][data-highlight=false] {
 	padding: 0;
 }
 
-body div.line[ltype*=privmsg][highlight=true],
-body div.line[ltype*=action][highlight=true] {
+body div.line[data-line-type*=privmsg][data-highlight=true],
+body div.line[data-line-type*=action][data-highlight=true],
+body div.line[data-line-type*=action][data-highlight=true] .message {
 	font-weight: normal;
-	background-color: #ffc !important;
-    color: #F39C12 !important;
+	background-color: #F39C12 !important;
+	color: #2b303b !important;
 }
 
-body div.line[highlight=true] span.innerMessage,
-body div.line[highlight=true] span.message,
-body div.line[highlight=true] span.sender,
-body div.line[highlight=true] span.time,
-body div.line[highlight=true] p {
+body div.line[data-line-type*=action][data-highlight=true] span.sender {
 	font-weight: normal;
+	background-color: #F39C12 !important;
 	font-weight:700;
-    color: #F39C12 !important;
-    background-color: #262626 !important;
-    clear: both;
 }
 
-body div[ltype*="privmsg"] .message {
+body div.line[data-highlight=true] span.time {
+	font-weight: normal;
+	color: #2b303b !important;
+	font-weight:700;
+	text-shadow: none;
+}
+
+body div[data-line-type*="privmsg"][data-highlight=false] .message {
 	color: #C0C5CE;
 	height:30px;
 }
 
-body div[ltype*=privmsg] p[ltype*=myself] .message,
-body div[ltype*=privmsg][mtype*=myself] .message {
+body div[data-line-type*=privmsg] p[data-line-type*=myself] .message,
+body div[data-line-type*=privmsg][data-member-type*=myself] .message {
 	color: #C0C5CE;
 }
 
-body div[ltype*=privmsg] .sender {
+body div .sender {
 	font-weight: 700;
 	width:134px;
 	min-height:30px;
@@ -303,19 +287,18 @@ body div[ltype*=privmsg] .sender {
 
 /* ACTION */
 
-body div.line[ltype*=action] {
+body div.line[data-line-type*=action] {
  	font-weight: bold;
  	font-style: italic;
-	background-color: #181818
-
+	 background-color: #2b303b;
 }
 
-body div[ltype*="action"] .message {
+body div[data-line-type*="action"] .message {
 	color: #eee;
 	font-weight: bold;
 }
 
-body div[ltype*=action] .sender {
+body div[data-line-type*=action] .sender {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -332,74 +315,90 @@ body div[ltype*=action] .sender {
 	height: 100%;
 }
 
-body div[ltype*=action] p[ltype*=myself] .sender,
-body div[ltype*=action][mtype*=myself] .sender {
+body div[data-line-type*=action] p[data-line-type*=myself] .sender,
+body div[data-line-type*=action][data-member-type*=myself] .sender {
 	color: #7ae;
 }
 
-body[dir=ltr] div[ltype*=action] .sender:before {
+body div[data-line-type*=action] p[data-line-type*=myself] .message,
+body div[data-line-type*=action][data-member-type*=myself] .sender {
+	color: #000;
+}
+
+body[dir=ltr] div[data-line-type*=action] .sender:before {
 	margin-right: 0.4em;
 }
 
-body[dir=ltr] div[ltype*=action] .sender:after {
+body[dir=ltr] div[data-line-type*=action] .sender:after {
 	content: "";
   	/* margin-right: 0.4em; */
 }
 
-body[dir=rtl] div[ltype*=action] .sender:before {
+body[dir=rtl] div[data-line-type*=action] .sender:before {
 	content: "\2022";
 	margin-left: 0.4em;
 }
 
-body[dir=rtl] div[ltype*=action] .sender:after {
+body[dir=rtl] div[data-line-type*=action] .sender:after {
 	content: "";
   	/* margin-left: 0.4em; */
 }
 
-
 /* DEBUG/INVITE */
 
-body div.line[ltype*=invite],
-body div.line[ltype*=debug],
-body div.line[ltype*=rawhtml] {
-	color: #999;
+body div.line[data-line-type*=invite],
+body div.line[data-line-type*=debug],
+body div.line[data-line-type*=rawhtml],
+.message_buffer_session_indicator {
   	z-index: 190;
 	background: #20242C;
   	position: relative;
-    padding-left: 20px;
+ 	padding: 2px 0px 2px 5px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Current session indicator */
+
+.message_buffer_session_indicator {
+	line-height: 25px;
+}
+
+.message_buffer_session_indicator hr {
+	display: none;
 }
 
 /* Message of the Day (MOTD) */
 /* 720, 721, 722 are used by ShadowIRCd for Oper MOTD. */
 /* 372, 375, 376 are normal MOTD shared by several IRCds. */
 
-body div.line[command="372"],
-body div.line[command="721"] {
+body div.line[data-command="372"],
+body div.line[data-command="721"] {
 	border: none;
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
 
-body div.line[command="375"],
-body div.line[command="720"] { /* Start. */
+body div.line[data-command="375"],
+body div.line[data-command="720"] { /* Start. */
 	border-bottom: none;
 	padding-top: 2px;
 	padding-bottom: 3px;
 }
 
-body div.line[command="376"],
-body div.line[command="722"] { /* End. */
+body div.line[data-command="376"],
+body div.line[data-command="722"] { /* End. */
 	border-top: none;
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
 
-body div.line[command="372"] .message,
-body div.line[command="375"] .message,
-body div.line[command="376"] .message
-body div.line[command="720"] .message,
-body div.line[command="721"] .message,
-body div.line[command="722"] .message {
+body div.line[data-command="372"] .message,
+body div.line[data-command="375"] .message,
+body div.line[data-command="376"] .message
+body div.line[data-command="720"] .message,
+body div.line[data-command="721"] .message,
+body div.line[data-command="722"] .message {
 	font-family: "Menlo" !important;
 }
 
@@ -438,266 +437,102 @@ body div.event span.message {
 	padding-left: 0;
 }
 
-body div.line[ltype*=join],
-body div.line[ltype*=part],
-body div.line[ltype*=kick],
-body div.line[ltype*=quit],
-body div.line[ltype*=kill],
-body div.line[ltype*=nick],
-body div.line[ltype*=mode],
-body div.line[ltype*=topic],
-body div.line[ltype*=website] {
-	padding-left: 20px;
-	background-color: #20242C;
+body div.line[data-line-type*=join],
+body div.line[data-line-type*=part],
+body div.line[data-line-type*=kick],
+body div.line[data-line-type*=quit],
+body div.line[data-line-type*=kill],
+body div.line[data-line-type*=nick],
+body div.line[data-line-type*=mode],
+body div.line[data-line-type*=topic],
+body div.line[data-line-type*=website] {
+	padding-left: 10px;
 	font-weight: bold;
 	min-height: 19px;
+	color: #eee;
+	background-color: #20242C !important;
 }
 
-body div.event span.message[ltype*=topic]{
-	color: #fff;
-}
-
-body div.event span.message[ltype*=join]{
+body div.event span.message[data-line-type*=topic]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=part]{
+body div.event span.message[data-line-type*=join]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=kick]{
+body div.event span.message[data-line-type*=part]{
+	color: #65737e;
+}
+
+body div.event span.message[data-line-type*=kick]{
 	color: #E74C3C;
 }
 
-body div.event span.message[ltype*=quit]{
+body div.event span.message[data-line-type*=quit]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=kill]{
+body div.event span.message[data-line-type*=kill]{
 	color: #E74C3C;
 }
 
-body div.event span.message[ltype*=nick]{
+body div.event span.message[data-line-type*=nick]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=mode]{
+body div.event span.message[data-line-type*=mode]{
 	color: #8fa1b3;
 }
 
+body div.date_indicator {
+	color: #eee;
+	padding-left: 10px;
+	background-color: #2b303b;
+	font-weight: bold;
+	min-height: 19px;
+	border-top: #181818 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+body div.date_indicator hr {
+	display: none;
+}
 
 /* Nickname Colors */
 
-body .inline_nickname {
+body .inlineSender {
 	color: #fff;
 	display: inline-block;
 	line-height: 1;
 	padding: 4px 2px;
 	background: #2C3E50;
-	border: 1px solid #34495E;
+	opacity: 0.8;
+	border-top: #34495E 1px solid;
 	border-radius: 3px;
 	margin: 4px 0;
 }
 
-body div[ltype*=privmsg] .sender[ltype*=myself], 
-body div[ltype*=privmsg] .sender[mtype*=myself] { 
-	color: #7ae; 
+body div[data-line-type*=privmsg] .sender[data-line-type*=myself],
+body div[data-line-type*=privmsg] .sender[data-member-type*=myself] {
+	color: #7ae;
 }
 
-body .sender[ltype*=normal][colornumber='0'], 
-body .sender[mtype*=normal][colornumber='0'], 
-body .inline_nickname[colornumber='0'] {
-	color: #bf616a; 
+.inlineImage,
+.inlineVideo,
+.inlineVideoService,
+.inlineHTML {
+	overflow: hidden !important;
+	display: flex !important;
+	margin-top: 15px !important;
+	margin-bottom: 12px !important;
 }
 
-body .sender[ltype*=normal][colornumber='1'], 
-body .sender[mtype*=normal][colornumber='1'], 
-body .inline_nickname[colornumber='1'] {
-	color: #d08770; 
-}
-
-body .sender[ltype*=normal][colornumber='2'], 
-body .sender[mtype*=normal][colornumber='2'], 
-body .inline_nickname[colornumber='2'] {
-	color: #ebcb8b; 
-}
-
-body .sender[ltype*=normal][colornumber='3'], 
-body .sender[mtype*=normal][colornumber='3'], 
-body .inline_nickname[colornumber='3'] {
-	color: #a3be8c; 
-}
-
-body .sender[ltype*=normal][colornumber='4'], 
-body .sender[mtype*=normal][colornumber='4'], 
-body .inline_nickname[colornumber='4'] {
-	color: #96b5b4; 
-}
-
-body .sender[ltype*=normal][colornumber='5'], 
-body .sender[mtype*=normal][colornumber='5'], 
-body .inline_nickname[colornumber='5'] {
-	color: #8fa1b3; 
-}
-
-body .sender[ltype*=normal][colornumber='6'], 
-body .sender[mtype*=normal][colornumber='6'], 
-body .inline_nickname[colornumber='6'] {
-	color: #b48ead; 
-}
-
-body .sender[ltype*=normal][colornumber='7'], 
-body .sender[mtype*=normal][colornumber='7'], 
-body .inline_nickname[colornumber='7'] {
-	color: #ab7967; 
-}
-
-body .sender[ltype*=normal][colornumber='8'], 
-body .sender[mtype*=normal][colornumber='8'], 
-body .inline_nickname[colornumber='8'] {
-	color: #bf616a; 
-}
-
-body .sender[ltype*=normal][colornumber='9'], 
-body .sender[mtype*=normal][colornumber='9'], 
-body .inline_nickname[colornumber='9'] {
-	color: #d08770; 
-}
-
-body .sender[ltype*=normal][colornumber='10'], 
-body .sender[mtype*=normal][colornumber='10'], 
-body .inline_nickname[colornumber='10'] {
-	color: #ebcb8b; 
-}
-
-body .sender[ltype*=normal][colornumber='11'], 
-body .sender[mtype*=normal][colornumber='11'], 
-body .inline_nickname[colornumber='11'] {
-	color: #a3be8c; 
-}
-
-body .sender[ltype*=normal][colornumber='12'], 
-body .sender[mtype*=normal][colornumber='12'], 
-body .inline_nickname[colornumber='12'] {
-	color: #96b5b4; 
-}
-
-body .sender[ltype*=normal][colornumber='13'], 
-body .sender[mtype*=normal][colornumber='13'], 
-body .inline_nickname[colornumber='13'] {
-	color: #8fa1b3; 
-}
-
-body .sender[ltype*=normal][colornumber='14'], 
-body .sender[mtype*=normal][colornumber='14'], 
-body .inline_nickname[colornumber='14'] {
-	color: #b48ead; 
-}
-
-body .sender[ltype*=normal][colornumber='15'], 
-body .sender[mtype*=normal][colornumber='15'], 
-body .inline_nickname[colornumber='15'] {
-	color: #ab7967; 
-}
-
-body .sender[ltype*=normal][colornumber='16'], 
-body .sender[mtype*=normal][colornumber='16'], 
-body .inline_nickname[colornumber='16'] { 
-	color: #bf616a;
-}
-
-body .sender[ltype*=normal][colornumber='17'], 
-body .sender[mtype*=normal][colornumber='17'], 
-body .inline_nickname[colornumber='17'] { 
-	color: #d08770;
-}
-
-body .sender[ltype*=normal][colornumber='18'], 
-body .sender[mtype*=normal][colornumber='18'], 
-body .inline_nickname[colornumber='18'] { 
-	color: #ebcb8b;
-}
-
-body .sender[ltype*=normal][colornumber='19'], 
-body .sender[mtype*=normal][colornumber='19'], 
-body .inline_nickname[colornumber='19'] { 
-	color: #a3be8c;
-}
-
-body .sender[ltype*=normal][colornumber='20'], 
-body .sender[mtype*=normal][colornumber='20'], 
-body .inline_nickname[colornumber='20'] { 
-	color: #96b5b4;
-}
-
-body .sender[ltype*=normal][colornumber='21'], 
-body .sender[mtype*=normal][colornumber='21'], 
-body .inline_nickname[colornumber='21'] { 
-	color: #8fa1b3;
-}
-
-body .sender[ltype*=normal][colornumber='22'], 
-body .sender[mtype*=normal][colornumber='22'], 
-body .inline_nickname[colornumber='22'] { 
-	color: #b48ead;
-}
-
-body .sender[ltype*=normal][colornumber='23'], 
-body .sender[mtype*=normal][colornumber='23'], 
-body .inline_nickname[colornumber='23'] { 
-	color: #ab7967;
-}
-
-body .sender[ltype*=normal][colornumber='24'], 
-body .sender[mtype*=normal][colornumber='24'], 
-body .inline_nickname[colornumber='24'] { 
-	color: #bf616a;
-}
-
-body .sender[ltype*=normal][colornumber='25'], 
-body .sender[mtype*=normal][colornumber='25'], 
-body .inline_nickname[colornumber='25'] { 
-	color: #d08770;
-}
-
-body .sender[ltype*=normal][colornumber='26'], 
-body .sender[mtype*=normal][colornumber='26'], 
-body .inline_nickname[colornumber='26'] { 
-	color: #ebcb8b;
-}
-
-body .sender[ltype*=normal][colornumber='27'], 
-body .sender[mtype*=normal][colornumber='27'], 
-body .inline_nickname[colornumber='27'] { 
-	color: #a3be8c;
-}
-
-body .sender[ltype*=normal][colornumber='28'], 
-body .sender[mtype*=normal][colornumber='28'], 
-body .inline_nickname[colornumber='28'] { 
-	color: #96b5b4;
-}
-
-body .sender[ltype*=normal][colornumber='29'], 
-body .sender[mtype*=normal][colornumber='29'], 
-body .inline_nickname[colornumber='29'] { 
-	color: #8fa1b3;
-}
-
-body .sender[ltype*=normal][colornumber='30'], 
-body .sender[mtype*=normal][colornumber='30'], 
-body .inline_nickname[colornumber='30'] { 
-	color: #b48ead;
-}
-
-.inlineImageCell {
-	overflow: hidden;
-	display: -webkit-flex;
-	margin-top: 15px;
-	margin-bottom: 12px;
-}
-
-.inlineImageCell .image {
+.inlineImage .content,
+.inlineVideo .content,
+.inlineVideoService .content,
+.inlineHTML .content {
 	display: inline-block;
 	margin-right: 12px;
 	margin-left: 10px;
@@ -707,10 +542,13 @@ body .inline_nickname[colornumber='30'] {
 	background:-webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#bcbcbc));
 	padding:10px;
 	border-radius: 5px;
-	-webkit-order: 1;
+	order: 1;
 }
 
-.inlineImageCell .closeButton {
+.inlineImage .closeButton,
+.inlineVideo .closeButton,
+.inlineVideoService .closeButton,
+.inlineHTML .closeButton {
 	cursor: pointer;
 	border-radius: 5px;
 	color: #fff;
@@ -723,15 +561,8 @@ body .inline_nickname[colornumber='30'] {
 	background:-webkit-gradient(linear, left top, left bottom, from(#d1d1d1), to(#bcbcbc));
 	padding-top:2px;
 	text-align: center;
-	-webkit-order: 2;
-
+	order: 2;
 }
-
-html[systemversion^="10.9"] .inlineImageCell .closeButton,
-html[systemversion^="10.8"] .inlineImageCell .closeButton {
-	line-height: 13px;
-}
-
 
 /* Selected User Messages */
 
@@ -739,41 +570,77 @@ html[systemversion^="10.8"] .inlineImageCell .closeButton {
 	cursor: pointer;
 }
 
-body div.line[ltype*=privmsg]:not(.selectedUser),
-body div.line[ltype*=action]:not(.selectedUser) {
+body div.line[data-line-type*=privmsg]:not(.selectedUser),
+body div.line[data-line-type*=action]:not(.selectedUser) {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 }
 
-body div.line[ltype*=privmsg] .time:not(.selectedUser),
-body div.line[ltype*=action] .time:not(.selectedUser) {
+body div.line[data-line-type*=privmsg] .time:not(.selectedUser),
+body div.line[data-line-type*=action] .time:not(.selectedUser) {
 	transition: color 0.5s;
 }
 
-body div.line.selectedUser[highlight=false] .time {
+body div.line.selectedUser[data-highlight=false] .time {
 	transition: color 0.5s ease-in;
-	color: #fff;
+	color: #000;
 }
 
-body div.line.selectedUser[highlight=false] p, 
-body div.line.selectedUser[highlight=false] span.innerMessage,
-body div.line.selectedUser[highlight=false] span.message,
-body div.line.selectedUser[highlight=false] span.time,
-body div.line.selectedUser[highlight=false] a {
+body div.line.selectedUser[data-highlight=false] {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 
   	z-index: 190;
   	position: relative;
-  	background-color: #3E8040 !important;
+  	background-color: #BDEFBC !important;
 }
 
-body div.line.selectedUser[highlight=false] .sender:before{
+body div.line.selectedUser[data-highlight=false] .sender:before{
 	content: "★ ";
 	color: #3E8040;
 }
 
 
-body div.line.coalesced.selectedUser[highlight=false] .sender:before{
+body div.line.coalesced.selectedUser[data-highlight=false] .sender:before{
 	content: "";
+}
+
+body[dir="ltr"] div.line[data-line-type="join"] .message:before {
+	content: "→";
+  	color: #0c0;
+  	/* margin-right: 0.4em; */
+}
+
+body[dir="ltr"] div.line[data-line-type="kick"] .message:before,
+body[dir="ltr"] div.line[data-line-type="part"] .message:before,
+body[dir="ltr"] div.line[data-line-type="quit"] .message:before {
+	content: "←";
+  	color: #e00;
+  	/* margin-right: 0.4em; */
+}
+
+body[dir="ltr"] div.line[data-line-type="nick"] .message:before {
+	content:"•";
+  	color: #0c0;
+  	/* margin-right: 0.4em; */
+}
+
+body[dir="rtl"] div.line[data-line-type="join"] .message:before {
+	content: "→";
+  	color: #0c0;
+  	/* margin-left: 0.4em; */
+}
+
+body[dir="rtl"] div.line[data-line-type="kick"] .message:before,
+body[dir="rtl"] div.line[data-line-type="part"] .message:before,
+body[dir="rtl"] div.line[data-line-type="quit"] .message:before {
+	content: "←";
+  	color: #e00;
+  	/* margin-left: 0.4em; */
+}
+
+body[dir="rtl"] div.line[data-line-type="nick"] .message:before {
+	content:"•";
+  	color: #0c0;
+  	/* margin-left: 0.4em; */
 }
