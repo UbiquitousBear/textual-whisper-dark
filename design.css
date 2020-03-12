@@ -486,7 +486,7 @@ body div.event span.message[data-line-type*=mode]{
 }
 
 body div.date_indicator {
-	color: #eee;
+	color: #C0C5CE;
 	padding-left: 10px;
 	background-color: #2b303b;
 	font-weight: bold;
