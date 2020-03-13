@@ -35,7 +35,7 @@ body {
 }
 
 body .line {
- 	border-top:1px solid #181818;
+ 	/* border-top:1px solid #181818; */
 	 display: block;
 	 background-color: #2b303b;
 }
