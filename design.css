@@ -246,7 +246,6 @@ body div.line[data-line-type*=action][data-highlight=true] .message {
 
 body div.line[data-line-type*=action][data-highlight=true] span.sender {
 	font-weight: normal;
-	background-color: #F39C12 !important;
 	font-weight:700;
 }
 
